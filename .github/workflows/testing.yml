@@ -13,6 +13,6 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: iad1-shared-e1-28.dreamhost.com
-          username: jaymarol
+          username: dh_k26cc3
           password: ${{ secrets.ftp_password }}
           server-dir: lucmon15.dreamhosters.com/
