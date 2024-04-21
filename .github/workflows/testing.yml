@@ -14,5 +14,5 @@ jobs:
         with:
           server: iad1-shared-e1-28.dreamhost.com
           username: jaymarol
-          password: ${{ secrets.FTP_PASSWORD }}
+          password: ${{ secrets.ftp_password }}
           server-dir: lucmon15.dreamhosters.com/
