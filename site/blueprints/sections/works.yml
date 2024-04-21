@@ -1,0 +1,10 @@
+type: pages
+label: Works
+parent: kirby.page('works')
+layout: cards
+template: work
+image:
+  query: page.images.template("cover").first
+  ratio: 3/2
+  cover: true
+info: "{{ page.year }}"

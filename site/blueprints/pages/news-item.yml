@@ -1,0 +1,83 @@
+title: News Item
+
+status:
+  draft: Draft
+  listed: Published
+
+fields:
+  title:
+    type: text
+  title_alt:
+    label: Alternate Headline
+    type: text
+  link:
+    type: url
+  status:
+    type: radio
+    default: upcoming
+    options:
+      upcoming: Upcoming
+      past: Past
+    columns: 2
+  dates:
+    type: object
+    fields:
+      # date type selector
+      dates_type:
+        label: Date type
+        type: radio
+        hidden: true
+        options:
+          single: Single Date
+          multiple: Multiple Dates
+          range: Date Range
+        columns: 3
+      # single date fields
+      dates_single:
+        label: Date
+        type: date
+        display: D MMMM YYYY
+        step: day
+        when:
+          dates_type: single
+      dates_single_details:
+        label: Details
+        type: writer
+        when:
+          dates_type: single
+      # multiple dates fields
+      dates_multiple:
+        label: Dates
+        type: structure
+        when:
+          dates_type: multiple
+        fields:
+          date:
+            type: date
+            display: D MMMM YYYY
+            step: day
+          date_details:
+            label: Details
+            type: writer
+      # date range fields
+      dates_range_start:
+        label: Start Date
+        width: 1/2
+        type: date
+        display: D MMMM YYYY
+        step: day
+        when:
+          dates_type: range
+      dates_range_end:
+        label: End Date
+        width: 1/2
+        type: date
+        display: D MMMM YYYY
+        step: day
+        when:
+          dates_type: range
+      dates_range_details:
+        label: Details
+        type: writer
+        when:
+          dates_type: range

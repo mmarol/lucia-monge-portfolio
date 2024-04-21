@@ -1,0 +1,76 @@
+title: Publication
+preset: page
+
+status:
+  draft: Draft
+  listed: Published
+
+fields:
+  subtitle:
+    type: text
+  collaborators:
+    type: text
+  tags:
+    type: tags
+  intro:
+    type: writer
+    nodes:
+      - paragraph
+    marks:
+      - bold
+      - italic
+      - underline
+      - link
+      - email
+  intro_alt:
+    label: Alternate Intro
+    type: writer
+    nodes:
+      - paragraph
+    marks:
+      - bold
+      - italic
+      - underline
+      - link
+      - email
+  description:
+    type: writer
+    nodes:
+      - paragraph
+      - heading
+    headings:
+      - 3
+    marks:
+      - bold
+      - italic
+      - underline
+      - link
+      - email
+  description_alt:
+    label: Alternate Description
+    type: writer
+    nodes:
+      - paragraph
+      - heading
+    headings:
+      - 3
+    marks:
+      - bold
+      - italic
+      - underline
+      - link
+      - email
+
+sidebar:
+  cover:
+    type: files
+    label: Cover
+    layout: cards
+    info: "{{ file.dimensions }}"
+    template: cover
+    min: 1
+    max: 1
+  gallery:
+    type: files
+    label: Gallery
+    template: image

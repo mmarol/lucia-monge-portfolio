@@ -1,0 +1,33 @@
+{
+  "name": "lucia-monge-portfolio",
+  "version": "1.0.0",
+  "description": "Kirby + Laravel Mix site for Lucia Monge",
+  "main": "src/script.js",
+  "scripts": {
+    "dev": "npx mix watch",
+    "build": "npx mix --production",
+    "push-content": "rsync -aziv --delete --progress --exclude='*.DS_Store' ./content/ dh_k26cc3@iad1-shared-e1-28.dreamhost.com/content/",
+    "push-content-dry": "rsync -anziv --delete --progress --exclude='*.DS_Store' ./content/ dh_k26cc3@iad1-shared-e1-28.dreamhost.com/content/",
+    "push-vendor": "rsync -aziv --delete --progress --exclude='*.DS_Store' ./vendor/ dh_k26cc3@iad1-shared-e1-28.dreamhost.com/vendor/",
+    "push-vendor-dry": "rsync -anziv --delete --progress --exclude='*.DS_Store' ./vendor/ dh_k26cc3@iad1-shared-e1-28.dreamhost.com/vendor/",
+    "push-assets": "rsync -aziv --delete --progress --exclude='*.DS_Store' ./assets/ dh_k26cc3@iad1-shared-e1-28.dreamhost.com/assets/",
+    "push-assets-dry": "rsync -anziv --delete --progress --exclude='*.DS_Store' ./assets/ dh_k26cc3@iad1-shared-e1-28.dreamhost.com/assets/",
+    "pull-content": "rsync -aziv --delete --progress dh_k26cc3@iad1-shared-e1-28.dreamhost.com/content/ ./content/",
+    "pull-content-dry": "rsync -anziv --delete --progress dh_k26cc3@iad1-shared-e1-28.dreamhost.com/content/ ./content/",
+    "pull-assets": "rsync -aziv --delete --progress dh_k26cc3@iad1-shared-e1-28.dreamhost.com/assets/ ./assets/",
+    "pull-assets-dry": "rsync -anziv --delete --progress dh_k26cc3@iad1-shared-e1-28.dreamhost.com/assets/ ./assets/"
+  },
+  "keywords": [],
+  "author": "Mrityunjay Marol",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "laravel-mix": "^6.0.49",
+    "postcss-custom-properties": "^13.3.7",
+    "postcss-import": "^16.1.0",
+    "postcss-nesting": "^12.1.1",
+    "postcss-url": "^10.1.3",
+    "resolve-url-loader": "^5.0.0"
+  }
+}

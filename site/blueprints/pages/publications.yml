@@ -1,0 +1,14 @@
+title: Publications
+icon: book
+
+sections:
+  drafts:
+    extends: sections/publications
+    label: Publication Drafts
+    status: draft
+
+  listed:
+    extends: sections/publications
+    label: Posted Publications
+    layout: cards
+    status: listed

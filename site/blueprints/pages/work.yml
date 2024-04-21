@@ -1,0 +1,106 @@
+title: Work
+
+status:
+  draft: Draft
+  listed: Published
+
+columns:
+  - width: 2/3
+    fields:
+      title:
+        type: text
+      title_alt:
+        label: Alternate Title
+        type: text
+      materials:
+        type: writer
+        nodes:
+          - paragraph
+        marks:
+          - bold
+          - italic
+          - underline
+          - link
+          - email
+      year:
+        type: text
+      collaborators:
+        type: text
+      tags:
+        type: tags
+      intro:
+        type: writer
+        nodes:
+          - paragraph
+        marks:
+          - bold
+          - italic
+          - underline
+          - link
+          - email
+      intro_alt:
+        label: Alternate Intro
+        type: writer
+        nodes:
+          - paragraph
+        marks:
+          - bold
+          - italic
+          - underline
+          - link
+          - email
+      description:
+        type: writer
+        nodes:
+          - paragraph
+          - heading
+        headings:
+          - 3
+        marks:
+          - bold
+          - italic
+          - underline
+          - link
+          - email
+      description_alt:
+        label: Alternate Description
+        type: writer
+        nodes:
+          - paragraph
+          - heading
+        headings:
+          - 3
+        marks:
+          - bold
+          - italic
+          - underline
+          - link
+          - email
+  - width: 1/3
+    fields:
+      cover:
+        type: files
+        label: Cover
+        layout: cards
+        info: "{{ file.dimensions }}"
+        uploads: cover
+        multiple: false
+      gallery:
+        type: files
+        label: Gallery
+        layout: cards
+        size: tiny
+        uploads: image
+
+# for using file sections instead of files
+# maybe useful for a separate file manager tab?
+# - width: 1/3
+#   sections:
+#     cover:
+#       type: files
+#       layout: cards
+#     gallery:
+#       type: files
+#       layout: cards
+#       size: tiny
+#       template: image

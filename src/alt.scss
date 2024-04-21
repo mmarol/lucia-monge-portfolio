@@ -1,0 +1,11 @@
+// Base
+@import "scss/base/normalize";
+@import "scss/base/base";
+
+//
+@import "scss/test";
+@import "scss/test-2";
+
+body {
+  color: green;
+}

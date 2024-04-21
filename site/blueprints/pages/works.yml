@@ -1,0 +1,14 @@
+title: Works
+icon: dashboard
+
+sections:
+  drafts:
+    extends: sections/works
+    label: Work Drafts
+    status: draft
+
+  listed:
+    extends: sections/works
+    label: Published Works
+    layout: cards
+    status: listed

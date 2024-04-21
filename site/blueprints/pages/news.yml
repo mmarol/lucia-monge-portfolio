@@ -1,0 +1,15 @@
+title: News
+icon: draft
+
+sections:
+  drafts:
+    extends: sections/news
+    label: Article Drafts
+    status: draft
+    layout: list
+
+  listed:
+    extends: sections/news
+    label: Posted Articles
+    layout: list
+    status: listed

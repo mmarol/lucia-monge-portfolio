@@ -1,0 +1,57 @@
+title: About
+icon: user
+
+columns:
+  - width: 1/2
+    fields:
+      description:
+        type: writer
+        size: medium
+      description_alt:
+        label: Alternate Description
+        type: writer
+        size: medium
+      cv_text:
+        label: CV text
+        type: url
+      cv_url:
+        label: CV link
+        type: files
+        uploads: document
+        multiple: false
+  - width: 1/2
+    fields:
+      headshot:
+        label: Headshot
+        type: files
+        layout: cards
+        max: 1
+        uploads:
+          template: image-single
+        image:
+          cover: true
+          ratio: 1/1
+  - width: 1/1
+    fields:
+      publications:
+        label: Publications
+        type: structure
+        fields:
+          title:
+            label: Title
+            type: text
+          url:
+            label: Link
+            type: url
+          subtitle:
+            label: Subtitle
+            type: text
+          collaborators:
+            label: Collaborators
+            type: list
+            marks: false
+            nodes:
+              - bulletList
+          publisher:
+            label: Publisher
+            type: text

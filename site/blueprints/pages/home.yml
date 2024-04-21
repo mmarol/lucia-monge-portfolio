@@ -1,0 +1,19 @@
+title: Home
+icon: home
+
+options:
+  changeStatus: false
+
+# Here we define an info section and a pages section (`photography`)
+sections:
+  content:
+    type: fields
+    fields:
+      intro:
+        type: writer
+  projects:
+    label: Works
+    extends: sections/works
+    status: listed
+    size: small
+    help: All projects for the homepage are being pulled from the works page.

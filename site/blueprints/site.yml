@@ -1,0 +1,43 @@
+title: Site
+
+sections:
+  pages:
+    label: Content
+    type: pages
+    # sortBy: status asc
+    image:
+      query: false
+      back: white
+      color: black
+  global:
+    type: fields
+    fields:
+      line:
+        type: line
+      global_settings:
+        label: Global Settings
+        type: headline
+      navigation_order:
+        label: Navigation Order
+        type: multiselect
+        options:
+          type: query
+          query: site.children.published
+      footer:
+        type: object
+        fields:
+          copyright:
+            type: text
+          email:
+            type: email
+          socials:
+            type: list
+            size: tiny
+            nodes:
+              - bulletList
+            marks:
+              - link
+
+  
+
+

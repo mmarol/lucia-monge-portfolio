@@ -1,0 +1,18 @@
+name: 🚀 Deploy testing website on push
+on:
+  push:
+    branches: [main]
+jobs:
+  web-deploy:
+    name: 🎉 Deploy Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: iad1-shared-e1-28.dreamhost.com
+          username: jaymarol
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: lucmon15.dreamhosters.com/
