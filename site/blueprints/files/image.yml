@@ -1,15 +1,23 @@
 title: Image
 
+create:
+  width: 1800
+  height: 1800
+  crop: false
+  format: "webp"
+
 fields:
   alt:
     label: Alternative Text
     type: text
   caption:
     label: Caption
-    type: textarea
-    size: small
-    buttons:
+    type: writer
+    nodes:
+      - paragraph
+    marks:
       - bold
       - italic
+      - underline
       - link
       - email

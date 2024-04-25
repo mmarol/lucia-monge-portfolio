@@ -1,51 +1,41 @@
-<?php
-/*
-  Templates render the content of your pages.
-
-  They contain the markup together with some control structures
-  like loops or if-statements. The `$page` variable always
-  refers to the currently active page.
-
-  To fetch the content from each field we call the field name as a
-  method on the `$page` object, e.g. `$page->title()`.
-
-  This about page example uses the content from our layout field
-  to create most parts of the page and keeps it modular. Only the
-  contact box at the bottom is pre-defined with a set of fields
-  in the about.yml blueprint.
-
-  Snippets like the header and footer contain markup used in
-  multiple templates. They also help to keep templates clean.
-
-  More about templates: https://getkirby.com/docs/guide/templates/basics
-*/
-?>
 <?php snippet('header') ?>
-<?php snippet('intro') ?>
-<?php snippet('layouts', ['field' => $page->layout()])  ?>
 
-<aside class="contact">
-  <h2 class="h1">Get in contact</h2>
-  <div class="grid" style="--gutter: 1.5rem">
-    <section class="column text" style="--columns: 4">
-      <h3>Address</h3>
-      <?= $page->address() ?>
-    </section>
-    <section class="column text" style="--columns: 4">
-      <h3>Email</h3>
-      <p><?= Html::email($page->email()) ?></p>
-      <h3>Phone</h3>
-      <p><?= Html::tel($page->phone()) ?></p>
-    </section>
-    <section class="column text" style="--columns: 4">
-      <h3>On the web</h3>
-      <ul>
-        <?php foreach ($page->social()->toStructure() as $social): ?>
-        <li><?= Html::a($social->url(), $social->platform()) ?></li>
-        <?php endforeach ?>
-      </ul>
-    </section>
-  </div>
-</aside>
+<section class="intro">
+  <h1 class="page__title"><?= $page->title()->esc() ?></h1>
+  <article class="intro__desc">
+    <p class="intro__text"><?= $page->description() ?></p>
+    <p class="intro__text alt"><?= $page->description_alt() ?></p>
+    <p class="intro__cv"><a href="<?= $page->cv_url()->toFile() ?>"><?= $page->cv_text() ?></a></p>
+  </article>
+  <?php
+  $sizes = "(min-width: 1200px) 25vw,
+        (min-width: 900px) 33vw,
+        (min-width: 600px) 50vw,
+        100vw";
+  $image = $page->headshot()->toFile();
+  ?>
+  <picture>
+    <source srcset="<?= $image->srcset('webp') ?>" sizes="<?= $sizes ?>" type="image/webp">
+    <img alt="<?= $image->alt() ?>" src="<?= $image->resize(300)->url() ?>" srcset="<?= $image->srcset() ?>" sizes="<?= $sizes ?>" width="<?= $image->resize(1800)->width() ?>" height="<?= $image->resize(1800)->height() ?>">
+  </picture>
+</section>
+
+<section class="publications">
+  <h2 class="publications__title"><?= $page->pub_title()->esc() ?></h2>
+  <?php
+  // using the `toStructure()` method, we create a structure collection
+  $publications = $page->publications()->toStructure();
+  // we can then loop through the entries and render the individual fields
+  foreach ($publications as $publication) : ?>
+    <article class="publication">
+      <h3><a href="<?= $publication->url() ?>"><?= $publication->title() ?></a></h3>
+      <?php if ($publication->subtitle()->isNotEmpty()) : ?>
+        <h4><?= $publication->subtitle() ?></h4>
+      <?php endif ?>
+      <?= $publication->collaborators()->list() ?>
+      <p><?= $publication->publisher() ?></p>
+    </article>
+  <?php endforeach ?>
+</section>
 
 <?php snippet('footer') ?>

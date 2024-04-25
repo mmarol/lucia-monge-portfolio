@@ -1,61 +1,78 @@
+<?php snippet('header') ?>
+<h1 class="home__title"><?= $page->page_title()->esc() ?></h1>
 <?php
 /*
-  Templates render the content of your pages.
-
-  They contain the markup together with some control structures
-  like loops or if-statements. The `$page` variable always
-  refers to the currently active page.
-
-  To fetch the content from each field we call the field name as a
-  method on the `$page` object, e.g. `$page->title()`.
-
-  This home template renders content from others pages, the children of
-  the `photography` page to display a nice gallery grid.
-
-  Snippets like the header and footer contain markup used in
-  multiple templates. They also help to keep templates clean.
-
-  More about templates: https://getkirby.com/docs/guide/templates/basics
-*/
-
-?>
-<?php snippet('header') ?>
-  <?php snippet('intro') ?>
-  <?php
-  /*
     We always use an if-statement to check if a page exists to
     prevent errors in case the page was deleted or renamed before
     we call a method like `children()` in this case
   */
-  ?>
-  <?php if ($photographyPage = page('photography')): ?>
-  <ul class="home-grid">
-    <?php foreach ($photographyPage->children()->listed() as $album): ?>
-    <li>
-      <a href="<?= $album->url() ?>">
-        <figure>
-          <?php
-          /*
-            The `cover()` method defined in the `album.php`
-            page model can be used everywhere across the site
-            for this type of page
+?>
 
-            We can automatically resize images to a useful
-            size with Kirby's built-in image manipulation API
-          */
-          ?>
-          <?php if ($cover = $album->cover()): ?>
-          <img src="<?= $cover->resize(1024, 1024)->url() ?>" alt="<?= $cover->alt()->esc() ?>">
+<!-- News Ticker -->
+<?php if ($selectedNews = $page->selected_news()->toPages()) : ?>
+  <ul class="news-ticker">
+    <?php foreach ($selectedNews as $newsItem) : ?>
+      <li class="news-ticker__item">
+        <a href="<?= $newsItem->link() ?>">
+          <p class="news-ticker__title"><?= $newsItem->title() ?>
+          <?php if ($newsItem->title_alt()->isNotEmpty()) : ?>
+            <span class="alt"> / <?= $newsItem->title_alt() ?></span>
           <?php endif ?>
-          <figcaption>
-            <span>
-              <span class="example-name"><?= $album->title()->esc() ?></span>
-            </span>
-          </figcaption>
-        </figure>
-      </a>
-    </li>
+          </p>
+
+          <!-- Dates logic -->
+          <?php $dates = $newsItem->dates()->toObject() ?>
+          <!-- Single date -->
+          <?php if ($dates->dates_type() == 'single') : ?>
+            <p><?= $dates->dates_single()->toDate('M j, Y') ?></p>
+            <!-- Multiple dates -->
+          <?php elseif ($dates->dates_type() == 'multiple') : ?>
+            <?php
+            $datesArray = [];
+            foreach ($dates->dates_multiple()->toStructure() as $date) {
+              $datesArray[] = $date->date()->toDate('M j, Y');
+            }
+            echo implode(" | ", $datesArray);
+            ?>
+            <!-- Date range -->
+          <?php elseif ($dates->dates_type() == 'range') : ?>
+            <p><?= $dates->dates_range_start()->toDate('M j, Y') ?> - <?= $dates->dates_range_end()->toDate('M j, Y') ?></p>
+          <?php endif ?>
+        </a>
+      </li>
     <?php endforeach ?>
   </ul>
+<?php endif ?>
+
+<!-- Selected Projects -->
+<?php if ($selectedProjects = $page->selected_projects()->toPages()) : ?>
+  <ul class="projects-grid">
+    <?php foreach ($selectedProjects as $project) : ?>
+      <li class="projects__item">
+        <a href="<?= $project->url() ?>">
+          <!-- image -->
+          <?php
+          $sizes = "(min-width: 1200px) 25vw, (min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw";
+          $image = $project->cover()->toFile();
+          ?>
+          <picture>
+            <source srcset="<?= $image->srcset('webp') ?>" sizes="<?= $sizes ?>" type="image/webp">
+            <img alt="<?= $image->alt() ?>" src="<?= $image->resize(300)->url() ?>" srcset="<?= $image->srcset() ?>" sizes="<?= $sizes ?>" width="<?= $image->resize(1800)->width() ?>" height="<?= $image->resize(1800)->height() ?>">
+          </picture>
+          <!-- project title -->
+          <h2 class="projects__item-title"><?= $project->title() ?></h2>
+          <h2 class="projects__item-title alt"><?= $project->title_alt() ?></h2>
+        </a>
+      </li>
+    <?php endforeach ?>
+  </ul>
+
+  <!-- More -->
+  <?php if ($projectPage = page('works')) : ?>
+    <div class="more">
+      <a href="<?= $projectPage->url() ?>"><?= $page->more_projects() ?></a>
+    </div>
   <?php endif ?>
+<?php endif ?>
+
 <?php snippet('footer') ?>

@@ -9,11 +9,23 @@ sections:
   content:
     type: fields
     fields:
-      intro:
-        type: writer
-  projects:
-    label: Works
-    extends: sections/works
-    status: listed
-    size: small
-    help: All projects for the homepage are being pulled from the works page.
+      page_title:
+        label: Page Title
+        type: text
+      selected_news:
+        label: Selected News
+        type: pages
+        max: 4
+        query: site.find('news')
+        help: "[Add/remove/edit news here.](/panel/pages/news)"
+      selected_projects:
+        label: Selected Projects
+        type: pages
+        max: 4
+        layout: cards
+        size: small
+        query: site.find('works')
+        help: "[Add/remove/edit projects here.](/panel/pages/works)"
+      more_projects:
+        label: More Projects Text
+        type: text

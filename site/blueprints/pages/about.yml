@@ -7,13 +7,35 @@ columns:
       description:
         type: writer
         size: medium
+        nodes:
+          - paragraph
+          - heading
+        headings:
+          - 3
+        marks:
+          - bold
+          - italic
+          - underline
+          - link
+          - email
       description_alt:
         label: Alternate Description
         type: writer
         size: medium
+        nodes:
+          - paragraph
+          - heading
+        headings:
+          - 3
+        marks:
+          - bold
+          - italic
+          - underline
+          - link
+          - email
       cv_text:
         label: CV text
-        type: url
+        type: text
       cv_url:
         label: CV link
         type: files
@@ -25,7 +47,7 @@ columns:
         label: Headshot
         type: files
         layout: cards
-        max: 1
+        multiple: false
         uploads:
           template: image-single
         image:
@@ -33,6 +55,11 @@ columns:
           ratio: 1/1
   - width: 1/1
     fields:
+      line:
+        type: line
+      pub_title:
+        label: Publications Title
+        type: text
       publications:
         label: Publications
         type: structure

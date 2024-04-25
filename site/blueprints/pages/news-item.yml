@@ -12,7 +12,7 @@ fields:
     type: text
   link:
     type: url
-  status:
+  date_status:
     type: radio
     default: upcoming
     options:
