@@ -2,7 +2,7 @@
 
 return function ($page) {
 
-  $limit    = 10;
+  $limit    = 2;
   $articles = $page->children()->listed();
 
   // add filters

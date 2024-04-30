@@ -2,7 +2,7 @@
 
 return function ($page) {
 
-  $limit          = 10;
+  $limit          = 2;
   $pastArticles   = $page->children()->listed()->filter('date_status', 'past')->paginate($limit);
   $pagination     = $pastArticles->pagination();
   $more           = $pagination->hasNextPage();

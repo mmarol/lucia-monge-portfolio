@@ -23,4 +23,4 @@
 
 
 ## To-do
-
+- [ ] Clean up esbuild npm scripts. Maybe move it to the esbuild JavaScript API instead. Alternatively define variables in package.json?

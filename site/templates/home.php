@@ -1,47 +1,82 @@
 <?php snippet('header') ?>
 <h1 class="home__title"><?= $page->page_title()->esc() ?></h1>
-<?php
-/*
-    We always use an if-statement to check if a page exists to
-    prevent errors in case the page was deleted or renamed before
-    we call a method like `children()` in this case
-  */
-?>
 
 <!-- News Ticker -->
 <?php if ($selectedNews = $page->selected_news()->toPages()) : ?>
-  <ul class="news-ticker">
-    <?php foreach ($selectedNews as $newsItem) : ?>
-      <li class="news-ticker__item">
-        <a href="<?= $newsItem->link() ?>">
-          <p class="news-ticker__title"><?= $newsItem->title() ?>
-          <?php if ($newsItem->title_alt()->isNotEmpty()) : ?>
-            <span class="alt"> / <?= $newsItem->title_alt() ?></span>
-          <?php endif ?>
-          </p>
+  <aside class="news-ticker">
+    <div class="news-ticker__wrap">
+      <ul class="news-ticker__container">
+        <?php foreach ($selectedNews as $newsItem) : ?>
+          <li class="news-ticker__item">
+            <a href="<?= $newsItem->link() ?>">
+              <?php if ($newsItem->title_alt()->isNotEmpty()) : ?>
+                <p class="news-ticker__title"><?= $newsItem->title() ?>
+                  <span class="alt"> / <?= $newsItem->title_alt() ?>&nbsp;•&nbsp;</span>
+                </p>
+              <?php else : ?>
+                <p class="news-ticker__title"><?= $newsItem->title() ?>&nbsp;•&nbsp;</p>
+              <?php endif ?>
 
-          <!-- Dates logic -->
-          <?php $dates = $newsItem->dates()->toObject() ?>
-          <!-- Single date -->
-          <?php if ($dates->dates_type() == 'single') : ?>
-            <p><?= $dates->dates_single()->toDate('M j, Y') ?></p>
-            <!-- Multiple dates -->
-          <?php elseif ($dates->dates_type() == 'multiple') : ?>
-            <?php
-            $datesArray = [];
-            foreach ($dates->dates_multiple()->toStructure() as $date) {
-              $datesArray[] = $date->date()->toDate('M j, Y');
-            }
-            echo implode(" | ", $datesArray);
-            ?>
-            <!-- Date range -->
-          <?php elseif ($dates->dates_type() == 'range') : ?>
-            <p><?= $dates->dates_range_start()->toDate('M j, Y') ?> - <?= $dates->dates_range_end()->toDate('M j, Y') ?></p>
-          <?php endif ?>
-        </a>
-      </li>
-    <?php endforeach ?>
-  </ul>
+              <!-- Dates logic -->
+              <?php $dates = $newsItem->dates()->toObject() ?>
+              <?php if ($dates->dates_type() == 'single') : ?>
+                <!-- Single date -->
+                <p><?= $dates->dates_single()->toDate('M j, Y') ?></p>
+              <?php elseif ($dates->dates_type() == 'multiple') : ?>
+                <!-- Multiple dates -->
+                <?php
+                $datesArray = [];
+                foreach ($dates->dates_multiple()->toStructure() as $date) {
+                  $datesArray[] = $date->date()->toDate('M j, Y');
+                } ?>
+                <p><?= implode(" | ", $datesArray); ?></p>
+              <?php elseif ($dates->dates_type() == 'range') : ?>
+                <!-- Date range -->
+                <p class="news-ticker__dates"><?= $dates->dates_range_start()->toDate('M j, Y') ?> - <?= $dates->dates_range_end()->toDate('M j, Y') ?></p>
+              <?php endif ?>
+            </a>
+          </li>
+        <?php endforeach ?>
+      </ul>
+    </div>
+
+    <!-- Duplicate items for continuous ticker -->
+    <div class="news-ticker__wrap duplicate" aria-hidden="true">
+      <ul class="news-ticker__container duplicate">
+        <?php foreach ($selectedNews as $newsItem) : ?>
+          <li class="news-ticker__item">
+            <a href="<?= $newsItem->link() ?>">
+              <?php if ($newsItem->title_alt()->isNotEmpty()) : ?>
+                <p class="news-ticker__title"><?= $newsItem->title() ?>
+                  <span class="alt"> / <?= $newsItem->title_alt() ?>&nbsp;•&nbsp;</span>
+                </p>
+              <?php else : ?>
+                <p class="news-ticker__title"><?= $newsItem->title() ?>&nbsp;•&nbsp;</p>
+              <?php endif ?>
+
+              <!-- Dates logic -->
+              <?php $dates = $newsItem->dates()->toObject() ?>
+              <?php if ($dates->dates_type() == 'single') : ?>
+                <!-- Single date -->
+                <p><?= $dates->dates_single()->toDate('M j, Y') ?></p>
+              <?php elseif ($dates->dates_type() == 'multiple') : ?>
+                <!-- Multiple dates -->
+                <?php
+                $datesArray = [];
+                foreach ($dates->dates_multiple()->toStructure() as $date) {
+                  $datesArray[] = $date->date()->toDate('M j, Y');
+                } ?>
+                <p><?= implode(" | ", $datesArray); ?></p>
+              <?php elseif ($dates->dates_type() == 'range') : ?>
+                <!-- Date range -->
+                <p class="news-ticker__dates"><?= $dates->dates_range_start()->toDate('M j, Y') ?> - <?= $dates->dates_range_end()->toDate('M j, Y') ?></p>
+              <?php endif ?>
+            </a>
+          </li>
+        <?php endforeach ?>
+      </ul>
+    </div>
+  </aside>
 <?php endif ?>
 
 <!-- Selected Projects -->

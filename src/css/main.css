@@ -1,3 +1,47 @@
+@import 'abstracts/type-styles.css';
+@import 'abstracts/variables.css';
+
+@import 'base/sanitize.css';
+
+@import 'components/header.css';
+@import 'components/footer.css';
+@import 'components/ticker.css';
+
+
 body {
-  background-color: thistle;
+  background-color: var(--c-bg);
+  color: var(--c-a);
+  font-size: var(--t-s);
+  font-family: var(--t-body);
+}
+
+main {
+  margin: 1rem;
+}
+
+h1 {
+  font-size: var(--t-xxxl);
+  font-family: var(--t-display);
+}
+
+h2 {
+  font-size: var(--t-xxl);
+  font-family: var(--t-display);
+}
+
+h3 {
+  font-size: var(--t-xl);
+  font-family: var(--t-display);
+}
+
+a {
+  color: var(--c-a);
+}
+
+.alt {
+  color: var(--c-b);
+}
+
+a.alt {
+  color: var(--c-b);
 }

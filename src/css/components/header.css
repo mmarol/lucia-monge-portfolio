@@ -1,0 +1,22 @@
+.header {
+  position: sticky;
+  top: 0;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--c-bg);
+  border-bottom: 1px solid var(--c-stroke);
+
+  a {
+    font-size: var(--t-s);
+    color: var(--c-a);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--c-b);
+    }
+  }
+}
