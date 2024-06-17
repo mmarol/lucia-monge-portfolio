@@ -1,4 +1,4 @@
-const element = document.querySelector('.news-list');
+const element = document.querySelector('.ajax-grid');
 const button  = document.querySelector('.load-more');
 let page      = parseInt(element.getAttribute('data-page'));
 
@@ -7,6 +7,7 @@ const fetchProjects = async () => {
   try {
     const response       = await fetch(url);
     const { html, more } = await response.json();
+    console.log(html);
     button.hidden        = !more;
     element.insertAdjacentHTML('beforeend', html);
     page++;
