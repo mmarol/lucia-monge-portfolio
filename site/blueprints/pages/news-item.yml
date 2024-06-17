@@ -6,13 +6,15 @@ status:
 
 fields:
   title:
+    label: English Headline
     type: text
   title_alt:
-    label: Alternate Headline
+    label: Spanish Headline
     type: text
   link:
     type: url
   date_status:
+    label: Status
     type: radio
     default: upcoming
     options:
@@ -26,7 +28,6 @@ fields:
       dates_type:
         label: Date type
         type: radio
-        hidden: true
         options:
           single: Single Date
           multiple: Multiple Dates
@@ -37,12 +38,13 @@ fields:
         label: Date
         type: date
         display: D MMMM YYYY
-        step: day
+        # step: day
         when:
           dates_type: single
       dates_single_details:
         label: Details
         type: writer
+        inline: true
         when:
           dates_type: single
       # multiple dates fields
@@ -52,13 +54,15 @@ fields:
         when:
           dates_type: multiple
         fields:
-          date:
+          date_multiple:
+            label: Date
             type: date
             display: D MMMM YYYY
             step: day
           date_details:
             label: Details
             type: writer
+            inline: true
       # date range fields
       dates_range_start:
         label: Start Date
@@ -79,5 +83,6 @@ fields:
       dates_range_details:
         label: Details
         type: writer
+        inline: true
         when:
           dates_type: range

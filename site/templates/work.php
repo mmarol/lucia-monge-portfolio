@@ -2,70 +2,96 @@
 
 <article class="project">
 
-  <h1 class="page__title">
+  <?php /* Title */ ?>
+  <h1 class="project__title">
     <?= $page->title() ?>
     <?php if ($page->title_alt()->isNotEmpty()) : ?>
       <span class="alt"> / <?= $page->title_alt() ?></span>
     <?php endif ?>
   </h1>
 
+  <?php /* Intro block */ ?>
   <div class="project__intro">
-    <?php if ($page->intro()->isNotEmpty()) : ?>
-      <p><?= $page->intro() ?></p>
-    <?php endif ?>
-    <?php if ($page->intro_alt()->isNotEmpty()) : ?>
-      <p><?= $page->intro_alt() ?></p>
-    <?php endif ?>
+
+    <?php /* Project info */ ?>
     <?php if (
       $page->year()->isNotEmpty() or
       $page->collaborators()->isNotEmpty() or
       $page->materials()->isNotEmpty()
     ) : ?>
-      <aside>
-        <p><?= $page->year() ?></p>
-        <?= $page->collaborators() ?>
-        <p><?= $page->materials() ?></p>
+      <aside class="project__info">
+        <?php if ($page->year()->isNotEmpty()) : ?>
+          <p class="project__detail year"><?= $page->year() ?></p>
+        <?php endif ?>
+        <?php if ($page->materials()->isNotEmpty()) : ?>
+          <p class="project__detail materials"><?= $page->materials() ?></p>
+        <?php endif ?>
+        <?php if ($page->collaborators()->isNotEmpty()) : ?>
+          <p class="project__detail collaborators"><?= $page->collaborators() ?></p>
+        <?php endif ?>
       </aside>
     <?php endif ?>
+
+    <?php /* Project summaries */ ?>
+    <?php if ($page->intro()->isNotEmpty()) : ?>
+      <div class="project__summary">
+        <p><?= $page->intro() ?></p>
+      </div>
+    <?php endif ?>
+    <?php if ($page->intro_alt()->isNotEmpty()) : ?>
+      <div class="project__summary alt">
+        <p><?= $page->intro_alt() ?></p>
+      </div>
+    <?php endif ?>
+
   </div>
 
+  <?php /* Project cover image */ ?>
   <figure class="project__cover">
-    <!-- image -->
-    <?php
-    $sizes = "100vw";
-    $image = $page->cover()->toFile();
-    ?>
-    <picture>
-      <source srcset="<?= $image->srcset('webp') ?>" sizes="<?= $sizes ?>" type="image/webp">
-      <img alt="<?= $image->alt() ?>" src="<?= $image->resize(300)->url() ?>" srcset="<?= $image->srcset() ?>" sizes="<?= $sizes ?>" width="<?= $image->resize(1800)->width() ?>" height="<?= $image->resize(1800)->height() ?>">
-    </picture>
-    <?php if ($image->caption()->isNotEmpty()) : ?>
-      <figcaption><?= $image->caption() ?></figcaption>
+    <?php snippet('image', [
+      'image' => $page->cover()->toFile(),
+      'sizes' => "100vw"
+    ]) ?>
+    <?php if ($page->cover()->toFile()->caption()->isNotEmpty()) : ?>
+      <figcaption><?= $page->cover()->toFile()->caption() ?></figcaption>
     <?php endif ?>
   </figure>
 
+  <?php /* Project descriptions */ ?>
   <?php if ($page->description()->isNotEmpty()) : ?>
-    <p class="project__description"><?= $page->description() ?></p>
+    <div class="project__description"><?= $page->description() ?></div>
   <?php endif ?>
   <?php if ($page->description_alt()->isNotEmpty()) : ?>
-    <p class="project__description alt"><?= $page->description_alt() ?></p>
+    <div class="project__description alt"><?= $page->description_alt() ?></div>
   <?php endif ?>
 
-  <?php foreach ($page->gallery()->toFiles() as $image) : ?>
-    <figure class="project__cover">
-      <!-- image -->
+  <?php /* Project gallery */ ?>
+  <div class="project__gallery">
+    <?php foreach ($page->gallery()->toFiles() as $image) : ?>
       <?php
-      $sizes = "(min-width: 1200px) 25vw, (min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw";
+      if ($image->orientation() == 'portrait') {
+        $orientationClass = "portrait";
+      } else {
+        $orientationClass = "landscape";
+      }
       ?>
-      <picture> 
-        <source srcset="<?= $image->srcset('webp') ?>" sizes="<?= $sizes ?>" type="image/webp">
-        <img alt="<?= $image->alt() ?>" src="<?= $image->resize(300)->url() ?>" srcset="<?= $image->srcset() ?>" sizes="<?= $sizes ?>" width="<?= $image->resize(1800)->width() ?>" height="<?= $image->resize(1800)->height() ?>">
-      </picture>
-      <?php if ($image->caption()->isNotEmpty()) : ?>
-        <figcaption><?= $image->caption() ?></figcaption>
-      <?php endif ?>
-    </figure>
-  <?php endforeach ?>
+
+      <a href="<?= $image->url() ?>" data-alt="An example description." data-fslightbox class="project__image <?= $orientationClass ?>">
+        <figure>
+          <?php snippet('image', [
+            'image' => $image,
+            'sizes' => "(min-width: 90rem) 25vw, 
+                      (min-width: 50rem) 50vw, 
+                      (min-width: 30rem) 50vw, 
+                      100vw"
+          ]) ?>
+          <?php if ($image->caption()->isNotEmpty()) : ?>
+            <figcaption><?= $image->caption() ?></figcaption>
+          <?php endif ?>
+        </figure>
+      </a>
+    <?php endforeach ?>
+  </div>
 </article>
 
 <?php snippet('prevnext') ?>

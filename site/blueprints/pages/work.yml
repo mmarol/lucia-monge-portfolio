@@ -8,12 +8,16 @@ columns:
   - width: 2/3
     fields:
       title:
+        label: English Title
         type: text
       title_alt:
-        label: Alternate Title
+        label: Spanish Title
+        type: text
+      year:
         type: text
       materials:
         type: writer
+        inline: true
         nodes:
           - paragraph
         marks:
@@ -22,13 +26,21 @@ columns:
           - underline
           - link
           - email
-      year:
-        type: text
       collaborators:
-        type: text
+        type: writer
+        inline: true
+        nodes:
+          - paragraph
+        marks:
+          - bold
+          - italic
+          - underline
+          - link
+          - email
       tags:
         type: tags
       intro:
+        label: English Intro
         type: writer
         nodes:
           - paragraph
@@ -39,7 +51,7 @@ columns:
           - link
           - email
       intro_alt:
-        label: Alternate Intro
+        label: Spanish Intro
         type: writer
         nodes:
           - paragraph
@@ -50,12 +62,13 @@ columns:
           - link
           - email
       description:
+        label: English Description
         type: writer
         nodes:
           - paragraph
           - heading
         headings:
-          - 3
+          - 2
         marks:
           - bold
           - italic
@@ -63,13 +76,13 @@ columns:
           - link
           - email
       description_alt:
-        label: Alternate Description
+        label: Spanish Description
         type: writer
         nodes:
           - paragraph
           - heading
         headings:
-          - 3
+          - 2
         marks:
           - bold
           - italic

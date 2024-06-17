@@ -2,7 +2,7 @@
 
 foreach($pastArticles as $article) {
 
-  $html .= snippet('news-list-item', ['article' => $article], true);
+  $html .= snippet('news-grid-item', ['item' => $article], true);
 
 }
 $json['html'] = $html;

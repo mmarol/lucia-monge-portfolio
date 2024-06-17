@@ -1,0 +1,5 @@
+title: Admin
+
+fields:
+  bio:
+    type: writer

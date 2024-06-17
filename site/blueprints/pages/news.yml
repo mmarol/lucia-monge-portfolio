@@ -11,5 +11,10 @@ sections:
   listed:
     extends: sections/news
     label: Posted Articles
-    layout: list
+    layout: table
     status: listed
+    columns:
+      title_alt: true
+        label: Spanish Title
+      date_status: true
+        label: Status

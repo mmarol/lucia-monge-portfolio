@@ -12,6 +12,11 @@ sections:
       page_title:
         label: Page Title
         type: text
+      page_logo:
+        label: Page Logo
+        type: files
+        multiple: false
+        uploads: icons
       selected_news:
         label: Selected News
         type: pages

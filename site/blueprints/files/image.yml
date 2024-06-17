@@ -1,8 +1,8 @@
 title: Image
 
 create:
-  width: 1800
-  height: 1800
+  width: 1920
+  height: 1920
   crop: false
   format: "webp"
 

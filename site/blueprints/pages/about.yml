@@ -5,6 +5,7 @@ columns:
   - width: 1/2
     fields:
       description:
+        label: English Description
         type: writer
         size: medium
         nodes:
@@ -19,7 +20,7 @@ columns:
           - link
           - email
       description_alt:
-        label: Alternate Description
+        label: Spanish Description
         type: writer
         size: medium
         nodes:
@@ -61,24 +62,5 @@ columns:
         label: Publications Title
         type: text
       publications:
-        label: Publications
-        type: structure
-        fields:
-          title:
-            label: Title
-            type: text
-          url:
-            label: Link
-            type: url
-          subtitle:
-            label: Subtitle
-            type: text
-          collaborators:
-            label: Collaborators
-            type: list
-            marks: false
-            nodes:
-              - bulletList
-          publisher:
-            label: Publisher
-            type: text
+        type: pages
+        query: site.find('publications')

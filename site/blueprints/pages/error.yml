@@ -14,4 +14,5 @@ sections:
     type: fields
     fields:
       bodyCopy:
+        label: Error Text
         type: writer

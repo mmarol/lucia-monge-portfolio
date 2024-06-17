@@ -1,16 +1,3 @@
-<?php
-/*
-  Snippets are a great way to store code snippets for reuse
-  or to keep your templates clean.
-
-  This header snippet is reused in all templates.
-  It fetches information from the `site.txt` content file
-  and contains the site navigation.
-
-  More about snippets:
-  https://getkirby.com/docs/guide/templates/snippets
-*/
-?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -47,16 +34,37 @@
   */
   ?>
   <link rel="shortcut icon" type="image/x-icon" href="<?= url('favicon.ico') ?>">
+  <?php
+  $backgroundColor = $site->site_colors()->toObject()->background_color();
+  $primaryColor = $site->site_colors()->toObject()->primary_color();
+  $secondaryColor = $site->site_colors()->toObject()->secondary_color();
+  $tertiaryColor = $site->site_colors()->toObject()->tertiary_color();
+  $gradientColorA = $site->site_colors()->toObject()->gradient_color_a();
+  $gradientColorB = $site->site_colors()->toObject()->gradient_color_b();
+  ?>
+  <style>
+    :root {
+      --c-bg: <?= $backgroundColor ?>;
+      --c-a: <?= $primaryColor ?>;
+      --c-b: <?= $secondaryColor ?>;
+      --c-stroke: <?= $tertiaryColor ?>;
+      --c-grad-a: <?= $gradientColorA ?>;
+      --c-grad-b: <?= $gradientColorB ?>;
+    }
+  </style>
 </head>
 
 <body>
-
   <header class="header">
     <nav class="menu">
-      <!-- Multiselect field to choose nav order -->
+      <?php
+      /*
+        Multiselect field to choose nav order
+      */
+      ?>
       <?php foreach ($site->navigation_order()->split() as $item) : ?>
         <?php $nav_item = page($item) ?>
-        <a <?php e($nav_item->isOpen(), 'aria-current="page"') ?> href="<?= $nav_item->url() ?>"><?= $nav_item->title()->esc() ?></a>
+        <a <?php e($nav_item->isOpen(), 'aria-current="page" class="active"') ?> href="<?= $nav_item->url() ?>"><?= $nav_item->title()->esc() ?></a>
       <?php endforeach ?>
     </nav>
   </header>

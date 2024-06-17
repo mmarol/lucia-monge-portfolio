@@ -1,0 +1,8 @@
+title: Icon
+
+accept: image/svg+xml
+
+fields:
+  alt:
+    label: Alternative Text
+    type: text
