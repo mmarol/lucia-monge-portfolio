@@ -1,0 +1,154 @@
+.publication {
+  display: grid;
+  gap: var(--s-l);
+  grid-template-columns: repeat(6, 1fr);
+
+  @media screen and (min-width: 30rem) {
+    
+  }
+  
+  @media screen and (min-width: 50rem) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  @media screen and (min-width: 80rem) {
+    
+  }
+}
+
+.publication__title {}
+
+.publication__subtitle {
+  margin: 0;
+  grid-column: span 6;
+
+  @media screen and (min-width: 30rem) {
+    grid-column: span 6;
+  }
+  
+  @media screen and (min-width: 50rem) {
+    grid-column: span 12;
+  }
+  
+  @media screen and (min-width: 80rem) {
+    grid-column: span 12;
+  }
+}
+
+.publication__summary {
+  display: grid;
+  grid-template-columns: subgrid;
+  align-content: start;
+  margin: 0;
+  grid-column: span 6;
+
+  @media screen and (min-width: 30rem) {
+    grid-column: span 6;
+  }
+  
+  @media screen and (min-width: 50rem) {
+    grid-column: span 6;
+  }
+  
+  @media screen and (min-width: 80rem) {
+    grid-column: span 8;
+  }
+}
+
+.publication__description {
+  grid-column: span 6;
+
+  @media screen and (min-width: 30rem) {
+    grid-column: span 5;
+  }
+  
+  @media screen and (min-width: 50rem) {
+    grid-column: span 6;
+  }
+  
+  @media screen and (min-width: 80rem) {
+    grid-column: span 4;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &+.publication__description {
+      margin-top: var(--s-s);
+
+      @media screen and (min-width: 80rem) {
+        margin-top: 0;
+      }
+  }
+}
+
+
+.publication__cover {
+  order: 1;
+  grid-column: span 3;
+
+  @media screen and (min-width: 30rem) {
+    grid-column: span 3;
+  }
+  
+  @media screen and (min-width: 50rem) {
+    order: 2;
+    grid-column: span 3;
+  }
+  
+  @media screen and (min-width: 80rem) {
+    grid-column: span 2;
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.publication__details {
+  margin: 0;
+  color: var(--c-stroke);
+  order: 2;
+  grid-column: span 3;
+
+  @media screen and (min-width: 30rem) {
+    grid-column: span 3;
+  }
+  
+  @media screen and (min-width: 50rem) {
+    grid-column: span 3;
+    order: 1;
+  }
+  
+  @media screen and (min-width: 80rem) {
+    grid-column: span 2;
+  }
+
+  dt {
+    margin-top: 0;
+    font-weight: bold;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  dd + dt {
+    margin-top: var(--s-s);
+  }
+}
+
+.publication__link {
+  display: inline-block;
+  transition: transform 0.2s ease;
+
+  &:after {
+    content: "↗";
+  }
+
+  &:hover {
+    transform: translate(2px, 2px);
+  }
+}

@@ -1,12 +1,13 @@
 .header {
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 .menu {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: var(--s-s) var(--s-l);
   background-color: var(--c-bg);
   border-bottom: 1px solid var(--c-stroke);
 
@@ -14,9 +15,16 @@
     font-size: var(--t-s);
     color: var(--c-a);
     text-decoration: none;
+    transition: transform 0.2s ease;
 
     &:hover {
-      color: var(--c-b);
+      color: var(--c-stroke);
+      /* font-weight: bold; */
+      transform: translate(2px, 2px);
     }
+  }
+
+  &.active {
+    font-weight: bold;
   }
 }

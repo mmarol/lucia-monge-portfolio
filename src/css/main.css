@@ -5,7 +5,11 @@
 
 @import 'components/header.css';
 @import 'components/footer.css';
+@import 'components/cursor.css';
+@import 'components/page.css';
 @import 'components/ticker.css';
+@import 'components/box-grid.css';
+@import 'components/more.css';
 
 
 body {
@@ -13,25 +17,34 @@ body {
   color: var(--c-a);
   font-size: var(--t-s);
   font-family: var(--t-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-  margin: 1rem;
+  margin: var(--s-l) var(--s-l) var(--s-xxl) var(--s-l);
+  flex-grow: 1;
 }
 
 h1 {
-  font-size: var(--t-xxxl);
+  font-size: var(--t-xxl);
   font-family: var(--t-display);
+  margin: 0;
 }
 
 h2 {
-  font-size: var(--t-xxl);
+  font-size: var(--t-xl);
   font-family: var(--t-display);
+  font-weight: lighter;
+  margin: 0;
 }
 
 h3 {
-  font-size: var(--t-xl);
-  font-family: var(--t-display);
+  font-size: var(--t-l);
+  font-family: var(--t-header);
+  font-weight: normal;
+  margin: 0;
 }
 
 a {
@@ -44,4 +57,12 @@ a {
 
 a.alt {
   color: var(--c-b);
+}
+
+figcaption {
+  color: var(--c-stroke);
+
+  p {
+    margin: var(--s-xs) 0 0 0;
+  }
 }

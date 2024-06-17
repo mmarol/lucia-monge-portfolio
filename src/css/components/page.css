@@ -1,0 +1,40 @@
+.page__section {
+  grid-column: span 6;
+
+  &+.page__section {
+    margin-top: var(--s-xxl);
+  }
+
+  @media screen and (min-width: 30rem) {
+    
+  }
+  
+  @media screen and (min-width: 50rem) {
+    grid-column: span 12;
+  }
+  
+  @media screen and (min-width: 80rem) {
+    
+  }
+}
+
+.page__title {
+  grid-column: span 6;
+  margin-bottom: 0;
+
+  @media screen and (min-width: 30rem) {
+    
+  }
+  
+  @media screen and (min-width: 50rem) {
+    grid-column: span 12;
+  }
+  
+  @media screen and (min-width: 80rem) {
+    
+  }
+}
+
+.page__subtitle {
+
+}

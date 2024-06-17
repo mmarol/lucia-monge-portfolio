@@ -9,3 +9,40 @@
 .next {
   text-align: right;
 }
+
+
+.dates {
+
+  dt {
+    font-weight: bold;
+    margin-top: var(--s-xs);
+  }
+
+  dd {
+    margin: 0;
+
+    p {
+      margin: 0;
+    }
+  }
+
+
+  &.single {
+
+  }
+
+  &.multiple {
+
+    dt {
+      
+    }
+
+    dd {
+
+    }
+  }
+
+  &.range {
+
+  }
+}

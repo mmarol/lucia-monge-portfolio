@@ -16,15 +16,15 @@
   */
   --s-xxs: 0.25rem;
   --s-xs: 0.5rem;
-  --s-s: 0.9rem;
-  --s-m: 1.5rem;
-  --s-l: 2rem;
-  --s-xl: 3rem;
-  --s-xxl: 5rem;
-  --s-xxxl: 10rem;
-  --s-xxxxl: 10rem;
+  --s-s: 0.75rem;
+  --s-m: 1rem;
+  --s-l: 1.5rem;
+  --s-xl: 2rem;
+  --s-xxl: 3rem;
+  --s-xxxl: 4rem;
+  --s-xxxxl: 5rem;
 
-  @media screen and (min-width: 512px) {
+  @media screen and (min-width: 30rem) {
     --s-xxs: 0.25rem;
     --s-xs: 0.5rem;
     --s-s: 1rem;
@@ -36,7 +36,7 @@
     --s-xxxxl: 10rem;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 40rem) {
     --s-xxs: 0.25rem;
     --s-xs: 0.5rem;
     --s-s: 1rem;
@@ -48,7 +48,7 @@
     --s-xxxxl: 10rem;
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 90rem) {
     --s-xxs: 0.25rem;
     --s-xs: 0.5rem;
     --s-s: 1rem;
@@ -74,42 +74,34 @@
   Type Size Variables
   ---------------------------------------
   */
-  --t-xs: 14px;
-  --t-s: 16px;
-  --t-m: 18px;
-  --t-l: 21px;
-  --t-xl: 24px;
-  --t-xxl: 30px;
-  --t-xxxl: 36px;
+  --t-s: 14px;
+  --t-m: 17px;
+  --t-l: 20px;
+  --t-xl: 28px;
+  --t-xxl: 34px;
 
-  @media screen and (min-width: 512px) {
-    --t-xs: 14px;
+  @media screen and (min-width: 30rem) {
     --t-s: 16px;
-    --t-m: 18px;
-    --t-l: 18px;
-    --t-xl: 24px;
-    --t-xxl: 30px;
-    --t-xxxl: 50px;
-  }
-
-  @media screen and (min-width: 768px) {
-    --t-xs: 14px;
-    --t-s: 16px;
-    --t-m: 21px;
-    --t-l: 24px;
-    --t-xl: 28px;
-    --t-xxl: 36px;
-    --t-xxxl: 60px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    --t-xs: 14px;
-    --t-s: 16px;
-    --t-m: 21px;
-    --t-l: 24px;
+    --t-m: 20px;
+    --t-l: 22px;
     --t-xl: 30px;
-    --t-xxl: 40px;
-    --t-xxxl: 70px;
+    --t-xxl: 42px;
+  }
+
+  @media screen and (min-width: 40rem) {
+    --t-s: 16px;
+    --t-m: 20px;
+    --t-l: 24px;
+    --t-xl: 36px;
+    --t-xxl: 50px;
+  }
+
+  @media screen and (min-width: 90rem) {
+    --t-s: 18px;
+    --t-m: 21px;
+    --t-l: 28px;
+    --t-xl: 40px;
+    --t-xxl: 60px;
   }
 
   /* 
@@ -117,6 +109,7 @@
   Font Variables
   ---------------------------------------
   */
-  --t-body: 'Fira Sans', Arial, sans-serif;
-  --t-display: "MAD Serif", Georgia, serif;
+  --t-body: "Fira Sans", Arial, sans-serif;
+  --t-header: "Ortica Linear", Georgia, serif;
+  --t-display: "MAD Serif Fill", Georgia, serif;
 }

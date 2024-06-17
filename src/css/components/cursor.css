@@ -1,0 +1,14 @@
+#cursor {
+  width: 400px;
+  height: 400px;
+  background: rgb(2,255,149);
+  background: radial-gradient(circle, rgba(2,255,149,1) 0%, rgba(179, 255, 2, 0.5) 30%, rgba(255,230,2,0) 70%);
+  background: radial-gradient(circle, var(--c-grad-a) 0%, var(--c-grad-b) 30%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  /* filter: blur(10px); */
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  pointer-events: none;
+  z-index: 5000;
+}

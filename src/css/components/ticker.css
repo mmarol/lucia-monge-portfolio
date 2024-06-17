@@ -1,68 +1,65 @@
-@keyframes ticker {
+@keyframes ticker-test {
   0% {
-    transform: translatex(100%);
-    z-index: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
   }
+
   100% {
-    transform: translatex(-100%);
-    z-index: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
   }
 }
 
-.news-ticker {
-  position: relative;
+.ticker__container {
+  width: 100%;
   overflow: hidden;
-  pointer-events: none;
+  background-color: rgba(#000, 0.9);
+  padding-left: 100%;
+  box-sizing: content-box;
+  position: relative;
+  left: calc(-1 * var(--s-l));
+}
+
+.ticker {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 100%;
+  box-sizing: content-box;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker-test;
+  animation-duration: 30s;
 
   &:hover {
-    .news-ticker__container {
-      animation-play-state: paused;
-    }
+    animation-play-state: paused;
   }
 }
 
-.news-ticker__wrap {
-  display: flex;
-  position: relative;
-  width: 100%;
-
-  &.duplicate {
-    position: absolute;
-    top: 0;
-  }
-}
-
-.news-ticker__container {
-  display: flex;
-  animation: ticker linear 20s infinite;
-  list-style: none;
-  padding: 0;
-  flex-grow: 1;
-  justify-content: space-around;
-
-  &.duplicate {
-    transform: translatex(100vw);
-    animation-delay: 10s;
-  }
-}
-
-.news-ticker__item {
-  display: flex;
+.ticker__item {
+  display: inline-block;
   text-wrap: nowrap;
-  margin-right: 1rem;
+  margin-right: var(--s-xl);
 
   a {
     display: flex;
     padding: 0 1rem;
     text-decoration: none;
-    border-bottom: 1px solid var(--c-stroke);
-    border-right: 1px solid var(--c-stroke);
+    box-shadow: 6px 1px 0 0 var(--c-stroke);
+    transform: translate(-6px, -3px);
+    transition: all 0.2s ease;
     pointer-events: auto;
+
+    &:hover {
+      box-shadow: 0px 0px 0 0 var(--c-bg);
+      transform: translate(0px, 0px);
+    }
   }
 }
 
-.news-ticker__title {
+
+.ticker__title {
   font-weight: bold;
 }
 
-.news-ticker__dates {}
+.ticker__dates {}

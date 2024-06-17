@@ -1,0 +1,103 @@
+.more, .pagination {
+  display: flex;
+  flex-wrap: wrap;
+  margin: var(--s-xl) 0;
+  width: 100%;
+
+  &.both {
+    justify-content: space-between;
+  }
+
+  &.start {
+    justify-content: flex-start;
+  }
+
+  &.end {
+    justify-content: flex-end;
+  }
+}
+
+.more__pages {
+  flex-basis: 100%;
+  padding: 0 var(--s-xs) var(--s-xs) 0; 
+  font-family: var(--t-header);
+  box-shadow: 6px 1px 0 0 var(--c-stroke);
+  transform: translate(-6px, -3px);
+  transition: all 0.2s ease;
+  text-align: right;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: 0px 0px 0 0 var(--c-bg);
+    transform: translate(0px, 0px);
+  }
+
+  &:after {
+    content: " →";
+  }
+}
+
+.more__prev {
+  padding: 0 var(--s-xs) var(--s-xs) var(--s-xs); 
+  font-family: var(--t-header);
+  box-shadow: -6px 1px 0 0 var(--c-stroke);
+  transform: translate(6px, -3px);
+  transition: all 0.2s ease;
+  text-align: left;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: 0px 0px 0 0 var(--c-bg);
+    transform: translate(0px, 0px);
+  }
+
+  &:before {
+    content: "← ";
+  }
+}
+
+.more__next {
+  padding: 0 var(--s-xs) var(--s-xs) var(--s-xs); 
+  font-family: var(--t-header);
+  box-shadow: 6px 1px 0 0 var(--c-stroke);
+  transform: translate(-6px, -3px);
+  transition: all 0.2s ease;
+  text-align: right;
+  text-decoration: none;
+  align-self: flex-end;
+
+  &:hover {
+    box-shadow: 0px 0px 0 0 var(--c-bg);
+    transform: translate(0px, 0px);
+  }
+
+  &:after {
+    content: " →";
+  }
+}
+
+.load-more {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 100%;
+  padding: 0 var(--s-xs) var(--s-xs) 0; 
+  margin-top: var(--s-l);
+  font-family: var(--t-header);
+  font-size: var(--t-s);
+  color: var(--c-a);
+  box-shadow: 6px 1px 0 0 var(--c-stroke);
+  transform: translate(-6px, -3px);
+  transition: all 0.2s ease;
+  text-align: right;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: 0px 0px 0 0 var(--c-bg);
+    transform: translate(0px, 0px);
+  }
+
+  &:after {
+    content: " +";
+  }
+}

@@ -1,0 +1,15 @@
+.home__logo {
+  container-type: inline-size;
+}
+
+.home__title {
+  font-size: 30cqi;
+  text-align: center;
+  line-height: 1;
+  margin-bottom: var(--s-m);
+
+  @media screen and (min-width: 30rem) {
+    font-size: 16.1cqi;
+    line-height: 1;
+  }
+}
