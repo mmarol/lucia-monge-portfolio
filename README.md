@@ -21,6 +21,42 @@
 - `rsync` scripts must be updated to replace `ftpuser@server:directory` with your specific server’s details.
 - Includes a bunch of Kirby blueprints and templates.
 
+## Syncing remote and local files
+- rSync scripts set up in `/package.json` to push and pull from prod url
+- Base files stored on GitHub
+- Stop any dev processes and run `npm run build` first
+- **Dry push and pull** to check so you don't overwrite anything unintended
+  - `npm run push-content-dry`
+  - `npm run push-vendor-dry`
+  - `npm run push-assets-dry`
+  - `npm run push-templates-dry`
+  - `npm run pull-content-dry`
+  - `npm run pull-assets-dry`
+- Push and pull using the following
+  - `npm run push-content`
+  - `npm run push-vendor`
+  - `npm run push-assets`
+  - `npm run push-templates`
+  - `npm run pull-content`
+  - `npm run pull-assets`
 
 ## To-do
-- [ ] Clean up esbuild npm scripts. Maybe move it to the esbuild JavaScript API instead. Alternatively define variables in package.json?
+- [x] Clean up esbuild npm scripts. Maybe move it to the esbuild JavaScript API instead. Alternatively define variables in package.json?
+- [ ] General styles
+  - [ ] Mouse glow effect
+  - [ ] Fonts
+- [ ] Homepage styles
+  - [x] Figure out main logo SVG/h1 accessibility
+  - [x] Project grid
+  - [ ] More projects link
+  - [ ] Move ticker logic to /controllers
+- [ ] News styles
+  - [x] News grid
+- [ ] About styles
+  - [ ] image treatment
+  - [x] publications grid
+- [ ] Works styles
+  - [x] duplicate homepage styles
+- [ ] Project styles
+  - [x] Image grid
+  - [ ] Lightbox with(?) carousel
