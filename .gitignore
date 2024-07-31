@@ -55,9 +55,10 @@ Icon
 
 node_modules
 vendor
+/kirby
 
 # Content
 # ---------------
 
-assets
-content
+/assets
+/content
