@@ -20,13 +20,13 @@ sections:
       selected_news:
         label: Selected News
         type: pages
-        max: 4
+        max: 6
         query: site.find('news')
         help: "[Add/remove/edit news here.](/panel/pages/news)"
       selected_projects:
         label: Selected Projects
         type: pages
-        max: 4
+        max: 9
         layout: cards
         size: small
         query: site.find('works')

@@ -11,13 +11,13 @@ if ($pagination->hasPrevPage() == null and $pagination->hasNextPage() != null) {
 <nav class="pagination <?= $containerAlignment ?>">
   <?php if ($prev = $pagination->prevPageURL()) : ?>
     <a href="<?= $prev ?>" class="more__prev">
-      Older items
+      Newer items
     </a>
   <?php endif ?>
 
   <?php if ($next = $pagination->nextPageURL()) : ?>
     <a href="<?= $next ?>" class="more__next">
-      Newer items
+      Older items
     </a>
   <?php endif ?>
 </nav>

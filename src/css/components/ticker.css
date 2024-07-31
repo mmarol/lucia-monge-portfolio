@@ -12,6 +12,13 @@
 }
 
 .ticker__container {
+  position: relative;
+  width: calc(100% + (var(--s-l) * 2));
+  left: calc(-1 * var(--s-l));
+  overflow: hidden;
+}
+
+.ticker__track {
   width: 100%;
   overflow: hidden;
   background-color: rgba(#000, 0.9);
@@ -46,7 +53,7 @@
     padding: 0 1rem;
     text-decoration: none;
     box-shadow: 6px 1px 0 0 var(--c-stroke);
-    transform: translate(-6px, -3px);
+    transform: translate(-6px, -1px);
     transition: all 0.2s ease;
     pointer-events: auto;
 

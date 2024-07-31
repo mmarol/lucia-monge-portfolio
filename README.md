@@ -43,20 +43,29 @@
 ## To-do
 - [x] Clean up esbuild npm scripts. Maybe move it to the esbuild JavaScript API instead. Alternatively define variables in package.json?
 - [ ] General styles
-  - [ ] Mouse glow effect
-  - [ ] Fonts
+  - [x] Mouse glow effect
+  - [ ] Mouse glow color change on hover elements
+  - [ ] touch device styling for glow
+  - [x] Fonts
 - [ ] Homepage styles
   - [x] Figure out main logo SVG/h1 accessibility
   - [x] Project grid
-  - [ ] More projects link
-  - [ ] Move ticker logic to /controllers
+  - [x] More projects link
+  - [x] Increase project limit
+  - [ ] Fix mobile horizontal scroll issue
 - [ ] News styles
   - [x] News grid
 - [ ] About styles
-  - [ ] image treatment
+  - [x] image treatment
   - [x] publications grid
+  - [x] Add paragraph spacing to description
 - [ ] Works styles
   - [x] duplicate homepage styles
+  - [x] issue with materials etc layout?
+  - [ ] Switch older/newer pages to AJAX more button
 - [ ] Project styles
   - [x] Image grid
-  - [ ] Lightbox with(?) carousel
+  - [x] Lightbox with(?) carousel
+- [ ] Publications styles
+  - [x] Figure out layout on larger screens
+  - [x] Add main image to carousel

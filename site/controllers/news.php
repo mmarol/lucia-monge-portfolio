@@ -2,7 +2,7 @@
 
 return function ($page) {
 
-  $limit    = 8;
+  $limit    = 12;
   $articles = $page->children()->listed();
 
   // add filters
@@ -10,17 +10,18 @@ return function ($page) {
   $pastArticles = $articles->filter('date_status', 'past');
 
   // add pagination tp past articles
-  $pastArticles = $pastArticles->paginate($limit);
+  $pastArticlesLimited = $pastArticles->paginate($limit);
 
   // create a shortcut for pagination
-  $pagination = $pastArticles->pagination();
+  $pagination = $pastArticlesLimited->pagination();
 
   // pass variables to the template
   return [
-    'limit'             => $limit,
-    'articles'          => $articles,
-    'upcomingArticles'  => $upcomingArticles,
-    'pastArticles'      => $pastArticles,
-    'pagination'        => $pagination
+    'limit'               => $limit,
+    'articles'            => $articles,
+    'upcomingArticles'    => $upcomingArticles,
+    'pastArticles'        => $pastArticles,
+    'pastArticlesLimited' => $pastArticlesLimited,
+    'pagination'          => $pagination
   ];
 };

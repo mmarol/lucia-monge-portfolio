@@ -30,6 +30,7 @@ main {
 h1 {
   font-size: var(--t-xxl);
   font-family: var(--t-display);
+  line-height: 110%;
   margin: 0;
 }
 
@@ -37,6 +38,7 @@ h2 {
   font-size: var(--t-xl);
   font-family: var(--t-display);
   font-weight: lighter;
+  line-height: 110%;
   margin: 0;
 }
 
@@ -44,6 +46,7 @@ h3 {
   font-size: var(--t-l);
   font-family: var(--t-header);
   font-weight: normal;
+  line-height: 110%;
   margin: 0;
 }
 

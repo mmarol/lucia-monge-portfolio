@@ -7,7 +7,30 @@ status:
 columns:
   - width: 2/3
     fields:
+      title:
+        label: English Title
+        type: text
+      title_options:
+        type: toggles
+        label: Title Options
+        options:
+          - value: both
+            text: English & Spanish
+          - value: eng
+            text: English only
+          - value: spa
+            text: Spanish only
+        default: both
+        help: `English & Spanish` options shows an additional field below. Use the main title field above when selecting the `English only` or `Spanish only` options.
+      title_alt:
+        label: Spanish Title
+        type: text
+        when: 
+          title_options: both
       subtitle:
+        type: text
+      author_editor:
+        label: Author/Editor
         type: text
       external_url:
         label: Link

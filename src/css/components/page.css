@@ -5,15 +5,15 @@
     margin-top: var(--s-xxl);
   }
 
-  @media screen and (min-width: 30rem) {
+  @media screen and (min-width: 600px) {
     
   }
   
-  @media screen and (min-width: 50rem) {
+  @media screen and (min-width: 900px) {
     grid-column: span 12;
   }
   
-  @media screen and (min-width: 80rem) {
+  @media screen and (min-width: 1200px) {
     
   }
 }
@@ -22,15 +22,15 @@
   grid-column: span 6;
   margin-bottom: 0;
 
-  @media screen and (min-width: 30rem) {
+  @media screen and (min-width: 600px) {
     
   }
   
-  @media screen and (min-width: 50rem) {
+  @media screen and (min-width: 900px) {
     grid-column: span 12;
   }
   
-  @media screen and (min-width: 80rem) {
+  @media screen and (min-width: 1200px) {
     
   }
 }

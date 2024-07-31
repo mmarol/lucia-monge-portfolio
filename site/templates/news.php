@@ -31,11 +31,11 @@ and
 ?>
 
 <?php /* Past News */ ?>
-<?php if ($pastArticles->isNotEmpty()) : ?>
+<?php if ($pastArticlesLimited->isNotEmpty()) : ?>
   <section class="page__section">
     <h2 class="page__subtitle">Past</h2>
     <ul class="box-grid news-grid ajax-grid" data-page="<?= $pagination->nextPage() ?>">
-      <?php foreach ($pastArticles as $article) : ?>
+      <?php foreach ($pastArticlesLimited as $article) : ?>
         <?php snippet('news-grid-item', ['item' => $article]) ?>
       <?php endforeach ?>
     </ul>

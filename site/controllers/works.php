@@ -2,19 +2,23 @@
 
 return function ($page) {
 
+  $limit    = 12;
+
   // get all articles
   $projects = $page->children()->listed();
 
   // add pagination
-  $projects = $projects->paginate(10);
+  $projectsLimited = $projects->paginate($limit);
 
   // create a shortcut for pagination
-  $pagination = $projects->pagination();
+  $pagination = $projectsLimited->pagination();
 
   // pass $projects and $pagination to the template
   return [
-    'projects' => $projects,
-    'pagination' => $pagination
+    'limit'               => $limit,
+    'projects'            => $projects,
+    'projectsLimited'     => $projectsLimited,
+    'pagination'          => $pagination
   ];
 
 };

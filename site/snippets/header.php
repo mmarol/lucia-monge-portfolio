@@ -41,6 +41,8 @@
   $tertiaryColor = $site->site_colors()->toObject()->tertiary_color();
   $gradientColorA = $site->site_colors()->toObject()->gradient_color_a();
   $gradientColorB = $site->site_colors()->toObject()->gradient_color_b();
+  $gradientColorC = $site->site_colors()->toObject()->gradient_color_c();
+  $gradientColorD = $site->site_colors()->toObject()->gradient_color_d();
   ?>
   <style>
     :root {
@@ -50,6 +52,8 @@
       --c-stroke: <?= $tertiaryColor ?>;
       --c-grad-a: <?= $gradientColorA ?>;
       --c-grad-b: <?= $gradientColorB ?>;
+      --c-grad-c: <?= $gradientColorC ?>;
+      --c-grad-d: <?= $gradientColorD ?>;
     }
   </style>
 </head>

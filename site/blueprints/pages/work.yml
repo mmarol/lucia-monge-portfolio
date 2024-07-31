@@ -10,12 +10,39 @@ columns:
       title:
         label: English Title
         type: text
+      title_options:
+        type: toggles
+        label: Title Options
+        options:
+          - value: both
+            text: English & Spanish
+          - value: eng
+            text: English only
+          - value: spa
+            text: Spanish only
+        default: both
+        help: `English & Spanish` options shows an additional field below. Use the main title field above when selecting the `English only` or `Spanish only` options.
       title_alt:
         label: Spanish Title
         type: text
+        when: 
+          title_options: both
       year:
         type: text
       materials:
+        label: Materials (English)
+        type: writer
+        inline: true
+        nodes:
+          - paragraph
+        marks:
+          - bold
+          - italic
+          - underline
+          - link
+          - email
+      materials_spa:
+        label: Materials (Spanish)
         type: writer
         inline: true
         nodes:
@@ -37,8 +64,6 @@ columns:
           - underline
           - link
           - email
-      tags:
-        type: tags
       intro:
         label: English Intro
         type: writer
@@ -105,6 +130,18 @@ columns:
         layout: cards
         size: tiny
         uploads: image
+      video_gallery:
+        label: Videos
+        type: structure
+        fields:
+          video_title:
+            label: Video title
+            type: text
+            help: To identify the videos in the backend
+          video_link:
+            label: Vimeo link
+            type: url
+          
 
 # for using file sections instead of files
 # maybe useful for a separate file manager tab?

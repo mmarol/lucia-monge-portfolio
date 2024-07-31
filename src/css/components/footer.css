@@ -6,16 +6,16 @@
   border-top: 1px solid var(--c-stroke);
   padding: var(--s-s) var(--s-l);
 
-  @media screen and (min-width: 30rem) {
+  @media screen and (min-width: 600px) {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
   
-  @media screen and (min-width: 50rem) {
+  @media screen and (min-width: 900px) {
     
   }
   
-  @media screen and (min-width: 90rem) {
+  @media screen and (min-width: 1200px) {
     
   }
   
@@ -34,16 +34,16 @@
   text-align: center;
   margin: 0;
 
-  @media screen and (min-width: 30rem) {
+  @media screen and (min-width: 600px) {
     flex-basis: auto;
     text-align-last: left;
   }
   
-  @media screen and (min-width: 50rem) {
+  @media screen and (min-width: 900px) {
     
   }
   
-  @media screen and (min-width: 90rem) {
+  @media screen and (min-width: 1200px) {
     
   }
   

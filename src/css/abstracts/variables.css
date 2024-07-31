@@ -24,7 +24,7 @@
   --s-xxxl: 4rem;
   --s-xxxxl: 5rem;
 
-  @media screen and (min-width: 30rem) {
+  @media screen and (min-width: 600px) {
     --s-xxs: 0.25rem;
     --s-xs: 0.5rem;
     --s-s: 1rem;
@@ -36,7 +36,7 @@
     --s-xxxxl: 10rem;
   }
 
-  @media screen and (min-width: 40rem) {
+  @media screen and (min-width: 900px) {
     --s-xxs: 0.25rem;
     --s-xs: 0.5rem;
     --s-s: 1rem;
@@ -48,7 +48,7 @@
     --s-xxxxl: 10rem;
   }
 
-  @media screen and (min-width: 90rem) {
+  @media screen and (min-width: 1200px) {
     --s-xxs: 0.25rem;
     --s-xs: 0.5rem;
     --s-s: 1rem;
@@ -75,20 +75,22 @@
   ---------------------------------------
   */
   --t-s: 14px;
-  --t-m: 17px;
+  --t-m: 16px;
   --t-l: 20px;
   --t-xl: 28px;
   --t-xxl: 34px;
+  
+  /* --t-l: 3.5vw; */
 
-  @media screen and (min-width: 30rem) {
-    --t-s: 16px;
-    --t-m: 20px;
+  @media screen and (min-width: 600px) {
+    --t-s: 15px;
+    --t-m: 18px;
     --t-l: 22px;
     --t-xl: 30px;
     --t-xxl: 42px;
   }
 
-  @media screen and (min-width: 40rem) {
+  @media screen and (min-width: 900px) {
     --t-s: 16px;
     --t-m: 20px;
     --t-l: 24px;
@@ -96,8 +98,8 @@
     --t-xxl: 50px;
   }
 
-  @media screen and (min-width: 90rem) {
-    --t-s: 18px;
+  @media screen and (min-width: 1200px) {
+    --t-s: 17px;
     --t-m: 21px;
     --t-l: 28px;
     --t-xl: 40px;

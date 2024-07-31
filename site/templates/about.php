@@ -9,9 +9,9 @@
   </article>
   <?php snippet('image', [
     'image' => $page->headshot()->toFile(),
-    'sizes' => "(min-width: 90rem) 25vw, 
-                (min-width: 50rem) 33vw, 
-                (min-width: 30rem) 100vw, 
+    'sizes' => "(min-width: 1200px) 25vw, 
+                (min-width: 900px) 33vw, 
+                (min-width: 600px) 100vw, 
                 100vw"
     ]) ?>
 </section>

@@ -3,12 +3,12 @@
 return function ($page) {
 
   $limit          = 12;
-  $pastArticles   = $page->children()->listed()->filter('date_status', 'past')->paginate($limit);
-  $pagination     = $pastArticles->pagination();
+  $projects       = $page->children()->listed()->paginate($limit);
+  $pagination     = $projects->pagination();
   $more           = $pagination->hasNextPage();
 
   return [
-      'pastArticles'  => $pastArticles,
+      'projects'      => $projects,
       'more'          => $more,
       'html'          => '',
       'json'          => [],

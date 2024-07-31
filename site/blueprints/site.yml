@@ -24,33 +24,45 @@ sections:
           background_color:
             label: Background Color
             type: color
-            format: hsl
+            format: hex
             width: 1/4
           primary_color:
             label: Primary Color
             type: color
-            format: hsl
+            format: hex
             width: 1/4
           secondary_color:
             label: Secondary Color
             type: color
-            format: hsl
+            format: hex
             width: 1/4
           tertiary_color:
             label: Tertiary Color
             type: color
-            format: hsl
+            format: hex
             width: 1/4
           gradient_color_a:
             label: Gradient Color A
             type: color
-            format: hsl
+            format: hex
             alpha: true
             width: 1/4
           gradient_color_b:
             label: Gradient Color B
             type: color
-            format: hsl
+            format: hex
+            alpha: true
+            width: 1/4
+          gradient_color_c:
+            label: Hover Gradient Color A
+            type: color
+            format: hex
+            alpha: true
+            width: 1/4
+          gradient_color_d:
+            label: Hover Gradient Color B
+            type: color
+            format: hex
             alpha: true
             width: 1/4
       navigation_order:

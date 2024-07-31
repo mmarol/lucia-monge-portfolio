@@ -1,0 +1,11 @@
+.js .pagination {
+  display: none;
+}
+
+.no-js .load-more {
+  display: none;
+}
+
+.next {
+  text-align: right;
+}

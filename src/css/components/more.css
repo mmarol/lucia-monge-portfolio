@@ -1,8 +1,9 @@
 .more, .pagination {
   display: flex;
   flex-wrap: wrap;
-  margin: var(--s-xl) 0;
+  margin: var(--s-xl) 0 0 0;
   width: 100%;
+  gap: var(--s-s);
 
   &.both {
     justify-content: space-between;
@@ -22,7 +23,7 @@
   padding: 0 var(--s-xs) var(--s-xs) 0; 
   font-family: var(--t-header);
   box-shadow: 6px 1px 0 0 var(--c-stroke);
-  transform: translate(-6px, -3px);
+  transform: translate(-6px, -1px);
   transition: all 0.2s ease;
   text-align: right;
   text-decoration: none;
@@ -45,6 +46,7 @@
   transition: all 0.2s ease;
   text-align: left;
   text-decoration: none;
+  flex-basis: 100%;
 
   &:hover {
     box-shadow: 0px 0px 0 0 var(--c-bg);
@@ -54,17 +56,23 @@
   &:before {
     content: "← ";
   }
+  
+  @media screen and (min-width: 600px) {
+    flex-basis: auto;
+  }
+  
 }
 
 .more__next {
   padding: 0 var(--s-xs) var(--s-xs) var(--s-xs); 
   font-family: var(--t-header);
   box-shadow: 6px 1px 0 0 var(--c-stroke);
-  transform: translate(-6px, -3px);
+  transform: translate(-6px, -1px);
   transition: all 0.2s ease;
   text-align: right;
   text-decoration: none;
   align-self: flex-end;
+  flex-basis: 100%;
 
   &:hover {
     box-shadow: 0px 0px 0 0 var(--c-bg);
@@ -73,6 +81,10 @@
 
   &:after {
     content: " →";
+  }
+
+  @media screen and (min-width: 600px) {
+    flex-basis: auto;
   }
 }
 
@@ -87,7 +99,7 @@
   font-size: var(--t-s);
   color: var(--c-a);
   box-shadow: 6px 1px 0 0 var(--c-stroke);
-  transform: translate(-6px, -3px);
+  transform: translate(-6px, -1px);
   transition: all 0.2s ease;
   text-align: right;
   text-decoration: none;

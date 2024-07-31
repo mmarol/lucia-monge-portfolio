@@ -12,3 +12,8 @@
   pointer-events: none;
   z-index: 5000;
 }
+
+body:has(a:hover) #cursor {
+  background: radial-gradient(circle, hsl(193, 100%, 50%) 0%, hsla(260, 100%, 58%, 0.58) 30%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, var(--c-grad-c) 0%, var(--c-grad-d) 30%, rgba(255,255,255,0) 70%);
+}
