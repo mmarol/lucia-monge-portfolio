@@ -14,10 +14,7 @@ if ($page->title_options() == 'spa') {
 <article class="publication">
 
   <figure class="publication__cover">
-    <?php
-    /*
-      lightbox not working
-      <a href="<?= $page->cover()->toFile()->url() ?>" data-fslightbox>
+    <a href="<?= $page->cover()->toFile()->url() ?>" data-fslightbox>
       <?php snippet('image', [
         'image' => $page->cover()->toFile(),
         'sizes' => "(min-width: 1200px) 33vw, 
@@ -26,9 +23,9 @@ if ($page->title_options() == 'spa') {
                   100vw"
       ]) ?>
     </a>
-    */
-    ?>
-    <div>
+    <?php
+    /*
+      <div>
       <?php snippet('image', [
         'image' => $page->cover()->toFile(),
         'sizes' => "(min-width: 1200px) 33vw, 
@@ -37,6 +34,8 @@ if ($page->title_options() == 'spa') {
                   100vw"
       ]) ?>
     </div>
+    */
+    ?>
   </figure>
 
   <section class="page__section publication__header">
@@ -97,11 +96,7 @@ if ($page->title_options() == 'spa') {
         $orientationClass = "landscape";
       }
       ?>
-
-      <?php
-      /*
-        lightbox not working properly
-        <a href="<?= $image->url() ?>" data-alt="An example description." data-fslightbox class="publication__image <?= $orientationClass ?>">
+      <a href="<?= $image->url() ?>" data-alt="An example description." data-fslightbox class="publication__image <?= $orientationClass ?>">
         <figure>
           <?php snippet('image', [
             'image' => $image,
@@ -115,9 +110,9 @@ if ($page->title_options() == 'spa') {
           <?php endif ?>
         </figure>
       </a>
-      */
-      ?>
-      <div class="publication__image <?= $orientationClass ?>">
+      <?php
+      /*
+        <div class="publication__image <?= $orientationClass ?>">
         <figure>
           <?php snippet('image', [
             'image' => $image,
@@ -131,6 +126,8 @@ if ($page->title_options() == 'spa') {
           <?php endif ?>
         </figure>
       </div>
+      */
+      ?>
     <?php endforeach ?>
   </div>
 

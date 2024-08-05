@@ -4,7 +4,7 @@
 
 <picture>
   <source 
-    srcset="<?= $image->srcset('webp') ?>" 
+    srcset="<?= $image->srcset() ?>" 
     sizes="<?= $sizes ?>"  
     type="image/webp"
   >

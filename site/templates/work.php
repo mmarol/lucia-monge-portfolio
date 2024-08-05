@@ -21,23 +21,22 @@
 
   <?php /* Project cover image */ ?>
   <figure class="project__cover">
-    <?php
-    /*
-      lightbox not working
       <a href="<?= $page->cover()->toFile()->url() ?>" data-fslightbox>
       <?php snippet('image', [
         'image' => $page->cover()->toFile(),
         'sizes' => "100vw"
       ]) ?>
     </a>
-    */
-    ?>
+    <?php
+    /*
     <div>
       <?php snippet('image', [
         'image' => $page->cover()->toFile(),
         'sizes' => "100vw"
       ]) ?>
     </div>
+    */
+    ?>
     <?php if ($page->cover()->toFile()->caption()->isNotEmpty()) : ?>
       <figcaption><?= $page->cover()->toFile()->caption() ?></figcaption>
     <?php endif ?>
@@ -115,10 +114,6 @@
         $orientationClass = "landscape";
       }
       ?>
-
-      <?php
-      /*
-        lightbox not working properly
         <a href="<?= $image->url() ?>" data-alt="An example description." data-fslightbox class="project__image <?= $orientationClass ?>">
         <figure>
           <?php snippet('image', [
@@ -133,8 +128,8 @@
           <?php endif ?>
         </figure>
       </a>
-      */
-      ?>
+      <?php
+      /*
       <div class="project__image <?= $orientationClass ?>">
         <figure>
           <?php snippet('image', [
@@ -149,6 +144,8 @@
           <?php endif ?>
         </figure>
       </div>
+      */
+      ?>
     <?php endforeach ?>
 
     <?php /* Videos */ ?>

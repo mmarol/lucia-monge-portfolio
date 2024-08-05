@@ -1,2 +1,2 @@
-// require("fslightbox");
+require("fslightbox");
 
