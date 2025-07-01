@@ -37,7 +37,9 @@
     "prod-pull-content": "rsync -aziv --delete dh_hhh6xr@iad1-shared-e1-28.dreamhost.com:luciamonge.com/content/ ./content/",
     "prod-pull-content-dry": "rsync -anziv --delete dh_hhh6xr@iad1-shared-e1-28.dreamhost.com:luciamonge.com/content/ ./content/",
     "prod-pull-assets": "rsync -aziv --delete dh_hhh6xr@iad1-shared-e1-28.dreamhost.com:luciamonge.com/assets/ ./assets/",
-    "prod-pull-assets-dry": "rsync -anziv --delete dh_hhh6xr@iad1-shared-e1-28.dreamhost.com:luciamonge.com/assets/ ./assets/"
+    "prod-pull-assets-dry": "rsync -anziv --delete dh_hhh6xr@iad1-shared-e1-28.dreamhost.com:luciamonge.com/assets/ ./assets/",
+    "prod-pull-kirby": "rsync -aziv --delete --exclude='*.DS_Store' dh_hhh6xr@iad1-shared-e1-28.dreamhost.com:luciamonge.com/kirby/ ./kirby/",
+    "prod-pull-kirby-dry": "rsync -anziv --delete --exclude='*.DS_Store' dh_hhh6xr@iad1-shared-e1-28.dreamhost.com:luciamonge.com/kirby/ ./kirby/"
   },
   "keywords": [],
   "author": "Mrityunjay Marol",
